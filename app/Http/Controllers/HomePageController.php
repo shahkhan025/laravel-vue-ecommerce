@@ -19,4 +19,11 @@ class HomePageController extends Controller
         $products = Product::all();
         return inertia('Frontend/Shop/Shop',compact('products'));
     }
+        public function detail($id)
+        {
+            //$user = auth()->user();
+            $product = Product::find($id);
+            return inertia('Frontend/Shop/ProductDetail',compact('product'));
+        }
+
 }

@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomePageController::class, 'index']);
 Route::get('/shop', [HomePageController::class, 'shop']);
+Route::get('/product-detail/{id}', [HomePageController::class, 'detail']);
 
 //dashboard Controller
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
