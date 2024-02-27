@@ -39,6 +39,7 @@ class ProductController extends Controller
             $image->move(public_path('images/product'),$imageName);
             $product->image = 'images/product/'.$imageName;
         }
+        $product->category_id = $request->category_id;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->qty = $request->qty;
@@ -76,7 +77,6 @@ class ProductController extends Controller
         $product->sale_price = $request->sale_price;
         $product->save();
         return redirect()->route('product.show');
-
     }
 
     public function delete($id)
@@ -87,6 +87,6 @@ class ProductController extends Controller
             unlink($imagePath);
         }
         $product->delete();
-        return redirect()->route('Product.show');
+        return redirect()->route('product.show');
     }
 }

@@ -74,6 +74,7 @@ export default {
         return{
             form:this.$inertia.form({
                 category_name:this.category.category_name ?? '',
+                image:this.category.image ?? '',
                 status: this.category.status ?? 0,
             })
         }

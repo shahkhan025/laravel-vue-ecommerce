@@ -20,24 +20,18 @@
                                     <input type="text" class="form-control" v-model="form.category_name" id="exampleInputPassword1" placeholder="Title">
                                 </div>
 
-<!--                                <div class="form-group">-->
-<!--                                    <label for="exampleInputEmail1">Position</label>-->
-<!--                                    <input type="number" class="form-control" v-model="form.position" id="position_number" placeholder="Enter Position">-->
-<!--                                </div>-->
-
-<!--                                <div class="form-group">-->
-<!--                                    <label for="exampleInputFile">Image</label>-->
-<!--                                    <div class="input-group">-->
-<!--                                        <div class="custom-file">-->
-<!--                                            &lt;!&ndash;                                            <input type="file" class="custom-file-input" id="exampleInputFile">&ndash;&gt;-->
-<!--                                            <input type="file" accept="image/" @input="form.image = $event.target.files[0]" class="custom-file-input">-->
-<!--                                            <label class="custom-file-label" for="exampleInputFile">Choose Image</label>-->
-<!--                                        </div>-->
-<!--                                        <div class="input-group-append">-->
-<!--                                            <span class="input-group-text">Upload</span>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Image</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" accept="image/" @input="form.image = $event.target.files[0]" class="custom-file-input">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose Image</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
 
@@ -66,6 +60,7 @@ export default {
         return{
             form:this.$inertia.form({
                 category_name:null,
+                image:null,
             })
         }
     },

@@ -34,6 +34,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Category Name</th>
+                                    <th>Category Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -42,9 +43,9 @@
                                 <tr v-for="category in categories" :key="category.id">
                                     <td>{{ category.id }}</td>
                                     <td>{{category.category_name}}</td>
-<!--                                    <td>-->
-<!--                                        <img :src="category.image" style="height: 50px;width: 50px;"/>-->
-<!--                                    </td>-->
+                                    <td>
+                                        <img :src="category.image" style="height: 50px;width: 50px;"/>
+                                    </td>
                                     <td>{{ category.status==1? 'Active' : 'Inactive'}}</td>
                                     <td>
                                         <Link class="btn btn-primary btn-sm mr-1" :href="`/category-edit/${category.id}`">Edit</Link>
@@ -52,6 +53,7 @@
                                     </td>
                                 </tr>
                                 </tbody>
+
                             </table>
                         </div>
                     </div>

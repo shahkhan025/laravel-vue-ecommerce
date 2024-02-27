@@ -18,10 +18,9 @@
                                 <div class="form-group">
                                     <label for="ProductTitle"> Select Category</label>
                                     <select class="form-control" v-model="form.category_id">
-                                        <option v-for="category in categories" :value="category.id">{{category.category_name}}</option>
-                                        <!--                                        <option>hello</option>-->
+                                        <option v-for="category in categories" :value="category.id">{{ category.category_name }}</option>
                                     </select>
-                                    <!--                                    <input type="text" class="form-control" v-model="form.name" id="exampleInputPassword1" placeholder="Name">-->
+
                                 </div>
 
                                 <div class="form-group">
@@ -103,7 +102,7 @@ export default {
     data(){
         return{
             form:this.$inertia.form({
-                category_id:this.product.category.id ?? '',
+                category_id:this.product.category_id ?? '',
                 name:this.product.name ?? '',
                 description:this.product.description ?? '',
                 image:this.product.image ?? '',
