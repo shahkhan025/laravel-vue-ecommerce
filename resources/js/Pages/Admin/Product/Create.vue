@@ -16,6 +16,15 @@
                         <form @submit.prevent="submit" accept="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label for="ProductTitle"> Select Category</label>
+                                    <select class="form-control" v-model="form.category_id">
+                                        <option v-for="category in categories" :value="category.id">{{category.category_name}}</option>
+<!--                                        <option>hello</option>-->
+                                    </select>
+<!--                                    <input type="text" class="form-control" v-model="form.name" id="exampleInputPassword1" placeholder="Name">-->
+                                </div>
+
+                                <div class="form-group">
                                     <label for="ProductTitle">Product Name</label>
                                     <input type="text" class="form-control" v-model="form.name" id="exampleInputPassword1" placeholder="Name">
                                 </div>
@@ -88,9 +97,14 @@ import {Link} from "@inertiajs/vue3";
 export default {
     name: "Create",
     layout: AdminLayout,
+    props:{
+        categories:Object
+    },
+
     data(){
         return{
             form:this.$inertia.form({
+                category_id:null,
                 name:null,
                 description:null,
                 image:null,
@@ -107,9 +121,16 @@ export default {
     },
     components: {
         Link
+    },
+    mounted() {
+        console.log(this.categories)
     }
 
 }
+
+// const props = defineProps({
+//     categories: Object,
+// })
 </script>
 
 <style scoped>

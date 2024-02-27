@@ -16,6 +16,15 @@
                         <form @submit.prevent="update" accept="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <label for="ProductTitle"> Select Category</label>
+                                    <select class="form-control" v-model="form.category_id">
+                                        <option v-for="category in categories" :value="category.id">{{category.category_name}}</option>
+                                        <!--                                        <option>hello</option>-->
+                                    </select>
+                                    <!--                                    <input type="text" class="form-control" v-model="form.name" id="exampleInputPassword1" placeholder="Name">-->
+                                </div>
+
+                                <div class="form-group">
                                     <label for="ProductName">Product Name</label>
                                     <input type="text" class="form-control" v-model="form.name" id="exampleproductName" placeholder="product name">
                                 </div>
@@ -88,11 +97,13 @@ export default {
     layout: AdminLayout,
     props: {
         error: Object,
-        product: Object
+        product: Object,
+        categories: Object,
     },
     data(){
         return{
             form:this.$inertia.form({
+                category_id:this.product.category.id ?? '',
                 name:this.product.name ?? '',
                 description:this.product.description ?? '',
                 image:this.product.image ?? '',

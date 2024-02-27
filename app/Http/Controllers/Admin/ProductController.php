@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return inertia('Admin/Product/Create');
+        $categories = Category::all();
+        //dd($categories);
+        return inertia('Admin/Product/Create',compact('categories'));
     }
 
     public function store(Request $request)
@@ -47,8 +50,9 @@ class ProductController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::all();
         $product = product::findOrFail($id);
-        return inertia('Admin/Product/Edit',compact('product'));
+        return inertia('Admin/Product/Edit',compact('product','categories'));
     }
 
     public function update(Request $request, $id)
